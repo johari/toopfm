@@ -8,7 +8,7 @@ it was hard, cumbersome and totaly not cool.
 but now, things have changed..
 
 also, if you prefer the command-line (i do), try this:
-$ curl "<url-to-app>/t/muse"
+$ curl "<url-to-app>/txt/muse"
 
 which spits a nice listing of the artist's top tracks.
 

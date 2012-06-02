@@ -52,8 +52,3 @@ get '/suggest' do
   alts = result[1]
   alts.collect { |x| x.gsub /\ ?last[. ]?fm/, "" }.to_json
 end
-
-get '/about' do
-  content_type "text/plain"
-  "Hello world!"
-end
