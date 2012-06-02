@@ -1,0 +1,21 @@
+<div id="top_track">
+  <% top_track = @tracks.shift %>
+  most popular song of <u><i><%= @artist %></i></u> seems to be
+  <br />
+  <b><%= top_track.name %></b> (<%= top_track.reach %>).
+</div>
+<small>you might wanna
+<a href="/"><%= ["head home", "search again", "lookup another artist"].sample %></a>.</small>
+<br />
+<p>
+other interesting songs of this artist, include
+<div style="padding-left:30px;">
+<ol start="2" id="other_top_tracks">
+  <% for track in @tracks %>
+   <li>
+      <%= "#{track.name} (#{track.reach})" %>
+  </li>
+<% end %>
+</ol>
+</div>
+</p>

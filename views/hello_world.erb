@@ -1,0 +1,41 @@
+<div id="topbox">
+  <p>
+    <%= ["show me the best of",
+         "lookup top tracks of"].sample %>..
+    <form method="post" id="tform" action="find">
+      <input autocomplete="off"
+             role="textbox" aria-autocomplete="list"
+             aria-haspopup="true"type="text"
+             id="tf" name="artist"
+             value=""
+             placeholder="e.g., <%= ["muse", "eric clapton", "o-hum", "kiosk", "dang show", "pink floyd", "comment band", "nirvana", "mohsen namjoo", "stalaggh", "derek and the dominos", "the beatles"].sample %>"
+             class="ui-autocomplete-input"/>
+    </form>
+  </p>
+</div>
+<script>
+  $(function() {
+    var cache = {}, lastXhr;
+    $("#tf").autocomplete({
+      minLength: 3,
+      source: function(request, response) {
+        $("#tf").addClass("fetching_suggestions");
+        var term = request.term;
+        if (term in cache) {
+          response(cache[term]);
+          return;
+        }
+        lastXhr = $.getJSON("suggest",
+                            {'key': term},
+                            function(data, status, xhr) {
+                              cache[term] = data;
+                              if (xhr === lastXhr) {
+                                response(data);
+                              }
+                            }).complete(function() {
+                              $("#tf").removeClass("fetching_suggestions");
+                            });
+      }
+    });
+  });
+</script>
