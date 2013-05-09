@@ -3,13 +3,14 @@ require 'sinatra/streaming'
 require 'yaml'
 require 'active_support/all'
 require 'json'
+require 'uri'
 
 get '/' do
   erb :hello_world
 end
 
 post '/find' do
-  redirect to("/show/%s" % params[:artist])
+  redirect to("/show/%s" % (URI::encode params[:artist]))
 end
 
 get '/:do/:artist/?' do
