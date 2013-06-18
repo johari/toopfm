@@ -4,5 +4,6 @@ Feature: Listing in text format
   I want to get top tracks in text format
 
   Scenario: Show top tracks in text format
-  When I visit "/txt/coldplay"
-  Then content-type must be "text/plain"
+  When I visit "/txt/pink+floyd"
+  Then content-type must contain "text/plain"
+  And I should see "Wish You Were Here"
