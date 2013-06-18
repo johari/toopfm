@@ -17,8 +17,12 @@ class MyWorld
 
   def app
     Sinatra::Application
+
   end
 end
 
 # Capybara.app = Sinatra::Application
 World{MyWorld.new}
+
+disable :show_exceptions
+enable :raise_errors
