@@ -1,5 +1,5 @@
-It's easier for me to use toopfm instead of last.fm
-to find best works of an artist. So here it is..
+It's easier for me to use toopfm (instead of last.fm)
+to find the best tracks of an artist. So here it is..
 
 also try
 
